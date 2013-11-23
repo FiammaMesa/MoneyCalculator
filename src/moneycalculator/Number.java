@@ -6,7 +6,7 @@ public class Number {
     private long denominator;
     
     public Number(long numerator, long denominator){
-        this.numerator = numerator;         //Preguntar si se puede hacer de la forma this.numerator/ this.denominator;
+        this.numerator = numerator;      
         this.denominator = denominator;  
     }
 
@@ -28,10 +28,10 @@ public class Number {
     }
     
     public void add(long number1){
-        numerator += number1;//revisaaar muchito!
+        numerator += number1;//revisar
     }
     
-    public void multiply(long number1){
+    public void multiply(long number1){//revisar
         numerator *= number1;
         denominator *= 1;
         numberFromDouble(numerator);        
@@ -55,7 +55,7 @@ public class Number {
         return ((numerator % number == 0) & denominator % number == 0);
     }
     
-    public void numberFromDouble(double number){ // preguntar si debe de ser estatico!
+    public void numberFromDouble(double number){ // static¿
         this.numerator = (long)number;
         this.denominator = 1;
         
