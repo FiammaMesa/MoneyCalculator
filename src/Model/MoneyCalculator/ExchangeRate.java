@@ -1,14 +1,20 @@
-package moneycalculator;
+package Model.MoneyCalculator;
 
 import java.util.Date;
 
 public class ExchangeRate {
 
     private Date date;
-    private Currency from;
-    private Currency to;
-    private Number rate;
+    private final Currency from;
+    private final Currency to;
+    private final Number rate;
 
+    public ExchangeRate (Currency from, Currency to, Number rate){
+        this.from = from;
+        this.to = to;
+        this.rate = rate;
+    }
+    
     public ExchangeRate(Date date, Currency from, Currency to, Number rate) {
         this.date = date;
         this.from = from;
@@ -31,4 +37,11 @@ public class ExchangeRate {
     public Number getRate() {
         return rate;
     }
+
+    @Override
+    public String toString() {
+        return "fecha:" + date + ", de:" + from + ", a:" + to + ", tasa de cambio:" + rate;
+    }
+    
+    
 }

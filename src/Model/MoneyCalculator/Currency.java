@@ -1,9 +1,9 @@
-package moneycalculator;
+package Model.MoneyCalculator;
 
 public class Currency {
 
-    private String name;
-    private String code;
+    private final String name;
+    private final String code;
     private String symbol;
 
     public Currency(String name, String code, String symbol) {
@@ -29,5 +29,11 @@ public class Currency {
     public String getSymbol() {
         return symbol;
     }
+
+    @Override
+    public String toString() {
+        return code;
+    }
+    
     
 }

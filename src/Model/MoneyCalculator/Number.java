@@ -1,6 +1,6 @@
-package moneycalculator;
+package Model.MoneyCalculator;
 
-public class Number {
+public final class Number {
     
     private long numerator;
     private long denominator;
@@ -23,18 +23,38 @@ public class Number {
         this(number, 1);
     }
     
-    public void operator(long numerator, long denominator){
-        System.out.println("houston, we have a problem here!");
+    public Number(double number){
+        numberFromDouble(number);
     }
     
-    public void add(long number1){
-        numerator += number1;//revisar
+    
+    public Number add(Number number){
+        number.reduce();
+        
+        if (number.denominator != denominator){
+            number.numerator = number.numerator * denominator + number.denominator*numerator;
+            number.denominator*=denominator;
+            number.reduce();
+        }else{
+            number.numerator = number.numerator+numerator;
+            number.reduce();
+        }
+        return number;
+        
     }
     
-    public void multiply(long number1){//revisar
-        numerator *= number1;
-        denominator *= 1;
-        numberFromDouble(numerator);        
+    public Number multiply(Number number1, Number number2){//revisar
+        number1.numerator = number1.numerator * number2.numerator;
+        number1.denominator = number1.denominator * number2.denominator;
+        number1.reduce();
+        return this;
+    }
+    
+    public Number divide(Number number){
+        number.numerator *= this.denominator;
+        number.denominator *= this.numerator;
+        number.reduce();
+        return number;
     }
 
     private void reduce() {
@@ -65,6 +85,20 @@ public class Number {
             numerator = (long)number;
         }
         reduce();
+    }
+    
+    public Number parseNumber(String value){
+        Number val;
+        for (int i = 0; i < value.length(); i++) {
+             val += (Number)value[i];  
+        }
+        return val;
+    }
+    
+
+    @Override
+    public String toString() {
+        return  numerator + "/" + denominator;
     }
     
 }
