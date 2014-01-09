@@ -87,15 +87,14 @@ public final class Number {
         reduce();
     }
     
-    public Number parseNumber(String value){
-        Number val;
-        for (int i = 0; i < value.length(); i++) {
-             val += (Number)value[i];  
-        }
-        return val;
+    public static Number parseNumber(String value){
+        long parse = Long.parseLong(value);
+        Number number = new Number(parse);
+        number.numberFromDouble(parse);
+        number.reduce();
+        return number;
     }
     
-
     @Override
     public String toString() {
         return  numerator + "/" + denominator;

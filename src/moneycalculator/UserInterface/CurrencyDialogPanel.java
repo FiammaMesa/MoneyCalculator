@@ -1,5 +1,8 @@
 package moneycalculator.UserInterface;
 
-public class CurrencyDialogPanel {
+import MoneyCalculator.UserInterface.CurrencyDialog;
+import javax.swing.JPanel;
+
+public class CurrencyDialogPanel extends JPanel implements CurrencyDialog {
     
 }

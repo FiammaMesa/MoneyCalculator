@@ -2,6 +2,7 @@ package moneycalculator.UserInterface;
 import Model.MoneyCalculator.Money;
 import MoneyCalculator.UserInterface.CurrencyDialog;
 import MoneyCalculator.UserInterface.MoneyDialog;
+import Model.MoneyCalculator.Number;
 
 import java.awt.FlowLayout;
 import java.awt.event.KeyEvent;
@@ -51,7 +52,7 @@ public class MoneyDialogPanel extends JPanel implements MoneyDialog{
 
     private JPanel createCurrencyDialogPanel() {
         CurrencyDialogPanel panel = new CurrencyDialogPanel();
-        this.currencyDialog = panel;
+        this.currencyDialog = (CurrencyDialog)panel;
         return panel;
     }
 
