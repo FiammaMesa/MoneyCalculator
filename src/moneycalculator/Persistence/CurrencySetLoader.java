@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import oracle.jdbc.OracleDriver;
 
 public class CurrencySetLoader {
 
@@ -24,5 +23,23 @@ public class CurrencySetLoader {
         }
         connection.close();
     }
+    
+    /* private static CurrencySetLoader instances;
+    
+    public CurrencySetLoader() {
+    }
+    
+    public static CurrencySetLoader getInstance(){
+        if (instances == null) instances = new CurrencySetLoader();
+        return instances;
+    }
+
+    public static void load(){
+        CurrencySet set = CurrencySet.getInstance();
+        if (set.search()){
+            set.add(new Currency("Dolar americano", "USD", "$"));
+            set.add(new Currency("Dolar canadiense", "CAD", "$"));
+            set.add(new Currency("Euro", "EUR", "€"));
+        }*/
     
 }
