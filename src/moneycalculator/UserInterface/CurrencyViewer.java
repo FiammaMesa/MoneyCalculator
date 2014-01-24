@@ -1,5 +1,7 @@
 package MoneyCalculator.UserInterface;
 
-public class CurrencyViewer {
-    
+import moneycalculator.Model.Currency;
+
+public interface CurrencyViewer {
+    public void show (Currency currency);
 }

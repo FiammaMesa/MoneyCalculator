@@ -1,4 +1,4 @@
-package Model.MoneyCalculator;
+package moneycalculator.Model;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package Model.MoneyCalculator;
+package moneycalculator.Model;
 
 public class Money {
     
@@ -22,6 +22,5 @@ public class Money {
     public String toString() {
         return  amount + " " + currency;
     }
-    
     
 }

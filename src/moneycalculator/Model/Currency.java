@@ -1,8 +1,8 @@
-package Model.MoneyCalculator;
+package moneycalculator.Model;
 
 public class Currency {
 
-    private final String name;
+    private String name;
     private final String code;
     private String symbol;
 
@@ -15,6 +15,10 @@ public class Currency {
 
     public Currency(String name, String code) {
         this.name = name;
+        this.code = code;
+    }
+    
+    public Currency(String code){
         this.code = code;
     }
 

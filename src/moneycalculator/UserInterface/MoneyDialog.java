@@ -1,5 +1,5 @@
 package MoneyCalculator.UserInterface;
-import Model.MoneyCalculator.Money;
+import moneycalculator.Model.Money;
 
 public interface MoneyDialog {
     public Money getMoney();

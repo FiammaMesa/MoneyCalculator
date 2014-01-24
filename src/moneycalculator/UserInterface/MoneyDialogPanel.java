@@ -1,12 +1,13 @@
 package moneycalculator.UserInterface;
-import Model.MoneyCalculator.Money;
+import moneycalculator.Model.Money;
 import MoneyCalculator.UserInterface.CurrencyDialog;
 import MoneyCalculator.UserInterface.MoneyDialog;
-import Model.MoneyCalculator.Number;
+import moneycalculator.Model.Number;
 
 import java.awt.FlowLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.SQLException;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -15,7 +16,7 @@ public class MoneyDialogPanel extends JPanel implements MoneyDialog{
     private String amount = "0";
     private CurrencyDialog currencyDialog;
     
-    public MoneyDialogPanel(){
+    public MoneyDialogPanel() throws SQLException{
         super (new FlowLayout (FlowLayout.LEFT));
         this.createComponents();
     }
@@ -25,7 +26,7 @@ public class MoneyDialogPanel extends JPanel implements MoneyDialog{
         return new Money (Number.parseNumber(amount), currencyDialog.getCurrency());
     }
     
-    private void createComponents() {
+    private void createComponents() throws SQLException {
         this.add(createAmountWidget());
         this.add(createCurrencyDialogPanel());   
     }
@@ -50,12 +51,9 @@ public class MoneyDialogPanel extends JPanel implements MoneyDialog{
         return textField;
     }
 
-    private JPanel createCurrencyDialogPanel() {
+    private JPanel createCurrencyDialogPanel() throws SQLException {
         CurrencyDialogPanel panel = new CurrencyDialogPanel();
         this.currencyDialog = (CurrencyDialog)panel;
         return panel;
-    }
-
-    
-    
+    }   
 }

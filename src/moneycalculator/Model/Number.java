@@ -1,4 +1,4 @@
-package Model.MoneyCalculator;
+package moneycalculator.Model;
 
 public final class Number {
     
@@ -43,11 +43,12 @@ public final class Number {
         
     }
     
-    public Number multiply(Number number1, Number number2){//revisar
+    public static Number multiply(Number number1, Number number2){
         number1.numerator = number1.numerator * number2.numerator;
         number1.denominator = number1.denominator * number2.denominator;
         number1.reduce();
-        return this;
+        Number num = new Number(number1.numerator, number1.denominator);
+        return num;
     }
     
     public Number divide(Number number){
@@ -75,7 +76,7 @@ public final class Number {
         return ((numerator % number == 0) & denominator % number == 0);
     }
     
-    public void numberFromDouble(double number){ // static¿
+    public void numberFromDouble(double number){
         this.numerator = (long)number;
         this.denominator = 1;
         
@@ -86,13 +87,20 @@ public final class Number {
         }
         reduce();
     }
+
+    public long getNumerator() {
+        return numerator;
+    }
+
+    public long getDenominator() {
+        return denominator;
+    }
     
     public static Number parseNumber(String value){
-        long parse = Long.parseLong(value);
-        Number number = new Number(parse);
-        number.numberFromDouble(parse);
-        number.reduce();
-        return number;
+        double parse = Double.parseDouble(value);
+        Number num = new Number(parse);
+        num.reduce();
+        return num;
     }
     
     @Override
